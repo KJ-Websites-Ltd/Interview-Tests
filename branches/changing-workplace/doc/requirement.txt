@@ -1,0 +1,20 @@
+Changing Workplace (bcampin@technet-it.co.uk / Sue.Jefferis@changingworkplace.com)
+=================================================================================
+
+Hi Candidate
+
+Please find a link to a zip file containing two files - an HTML file and a JavaScript file.
+
+The HTML file contains a basic structure to load in the JavaScript file and call to a function called getPopulationByContinent().
+
+The JS file contains an ES6 class that contains a constructor, which itself has an arbitrary data structure of geographical data, and some of the hierarchy levels have a population figure.  It also contains a placeholder for the getPopulationByContinent method.
+
+We would like you to write functionality to process the geographical data and calculate total populations grouped by continent.  For example, Asia = 67625000.
+
+Rules:
+
+You can't modify the supplied geographicData data structure at all to make your solution work
+You can assume that the top level is always a continent
+Think about how your solution would work if more levels were added to the tree
+
+You can present the answer however you like, and there is no time limit..
