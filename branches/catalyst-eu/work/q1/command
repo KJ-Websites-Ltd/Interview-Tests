@@ -1,0 +1,29 @@
+<?php
+
+/**
+ * Catalyst EU Test Question
+ * @author John Jeeves <johnnyvibrant@gmail.com>
+ * @date  26/02/2017
+ * @version 0.0.1
+ * @cli >php command input.txt
+ *
+ * @title Q1. Shortest word
+ * @description Write a program to find the shortest word on each line of a text file and display the results, one word per line. Your program will be invoked from the command line as ./command  input.txt and should write the answer to the standard output stream
+ *
+ * In case of multiple equally short words in a line, select only the first one.
+ * Make a note of any other assumptions that could affect the outcome.
+ * You may use any programming language.
+ *
+ */
+
+
+
+
+require './find-shortest-word.php';
+
+$dataUri = $argv[1];
+$fsw = new findShortestWordFromText($dataUri);
+echo $fsw->getResults();
+
+
+
