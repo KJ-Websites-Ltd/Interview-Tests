@@ -1,0 +1,117 @@
+///Colors
+$black: rgb(10, 10, 10);
+$white: rgb(250, 250, 250);
+$grey: rgb(50, 50, 50);
+$light-grey: rgb(200, 200, 200);
+
+//font
+@import url('https://fonts.googleapis.com/css?family=Josefin+Slab:700|Lato');
+$header: 'Josefin Slab',
+serif;
+$body: 'Lato',
+sans-serif;
+
+//breakpoints
+$phone: 480px;
+$tablet: 768px;
+$desktop: 1024px;
+
+#root {
+
+    .main {
+
+        display: grid;
+        grid-template-rows: min-content 1fr;
+        background-color: $black;
+        padding-top: 5rem;
+
+        h1 {
+
+            background-color: $grey;
+            padding: 1rem;
+            text-align: center;
+            margin: 0;
+            color: $white;
+            font-family: $header;
+            position: fixed;
+            width: 100vw;
+            border-bottom: 0.2rem solid $light-grey;
+
+        }
+
+        nav {
+
+            font-family: $body;
+
+            ul {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+                display: grid;
+                grid-template-columns: repeat(1, 1fr);
+                grid-gap: 1rem;
+
+                @media(min-width: $tablet) {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+
+                @media(min-width: $desktop) {
+                    grid-template-columns: repeat(3, 1fr);
+                }
+
+                li {
+
+
+
+                    a {
+
+                        transition: background-color 0.5s ease-out, border-color 1s ease-in;
+                        color: $white;
+                        text-decoration: none;
+                        padding: 1rem;
+                        display: block;
+                        border: 1px solid $grey;
+
+
+                        &:hover {
+                            background-color: $grey;
+                            border: 1px solid $light-grey;
+                        }
+
+                        &:after {
+                            content: "";
+                            display: block;
+                            clear: both;
+                        }
+
+                        img {
+
+                            width: 30%;
+                            float: right;
+                            margin: 0 0 1rem 1rem;
+                            object-fit: contain;
+                        }
+
+                        h4 {
+                            font-size: 2rem;
+                            margin: 0;
+                            padding-bottom: 1rem;
+                            font-family: $header
+                        }
+
+                        h5 {
+                            margin: 0;
+                            font-family: $body;
+                        }
+
+                        p {
+                            font-size: 0.8rem;
+                            line-height: 1.2;
+                            font-family: $body;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
