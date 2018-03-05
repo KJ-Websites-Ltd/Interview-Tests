@@ -1,28 +1,41 @@
+/**
+ * Basic listing of IMDB Top 12 films as of 2018 built ontop of the React Start appliaction outline https://reactjs.org/docs/add-react-to-a-new-app.html
+ * @author John Jeeves <johnnyvibrant@gmail.com>
+ * @date 04/03/2018
+ * @version v1
+ * 
+ */
 
 
 import React, { Component } from 'react';
 import _ from 'lodash';
-//import topTenFilmsData from './data/top-ten-films.json';
 import './App.css';
 
 
-
+/**
+ * @brief Pullin in a JSON feed of the Top 12 films from IMDB as of 2018
+ * @details [long description]
+ * 
+ */
 class App extends Component {
 
 
   /**
-   * @brief [brief description]
-   * @details [long description]
+   * @brief Setup the state object when started
    * 
-   * @param  [description]
+   * @param  Eeact props
    */
   constructor(props) {
 
     super(props);
     this.state = {
+      //this is a static JSON that was originally from http://www.myapifilms.com/
       topTenFilmsDataUri: './data/top-ten-films.json',
+      //How many films to actually retur form the entire list
       resultLimit: 12,
+      //Use this to populate the film array and pass around object
       topTenFilmsData: [],
+      //Static title to output on the page
       galleryTitle: 'Top Ten Films IMDB 2018'
     }
 
@@ -30,11 +43,35 @@ class App extends Component {
 
 
 
+
+
   /**
-   * @brief [brief description]
-   * @details [long description]
+   * @brief Before rendering the layout, fetch the JSON from an external url, when more development time and testing this could fetch from http://www.myapifilms.com/ or a local server side script that could cache the results
+   */
+  componentDidMount() {
+
+     fetch(this.state.topTenFilmsDataUri, {
+      method: 'GET'
+    }).then((response) => {
+      return response.json();
+    }).then((j) => {
+      //limit the amount of films to actually list
+      const filmData = _.slice(j.data.movies, 0, this.state.resultLimit);
+      this.setState ({
+        topTenFilmsData: filmData
+        });
+
+    
+    })
+
+  }
+
+
+
+  /**
+   * @brief Create each film listing element as a link to the IMDB, showing a title, short synposis, poster and rating 
    * 
-   * @param  [description]
+   * @param  [array] Each film array item
    */
   createFilmListItem(film) {
       
@@ -53,31 +90,8 @@ class App extends Component {
         )
   }
 
-
   /**
-   * @brief [brief description]
-   * @details [long description]
-   */
-  componentDidMount() {
-     fetch(this.state.topTenFilmsDataUri, {
-      method: 'GET'
-    }).then((response) => {
-      return response.json();
-    }).then((j) => {
-
-      const filmData = _.slice(j.data.movies, 0, this.state.resultLimit);
-      this.setState ({
-        topTenFilmsData: filmData
-        });
-
-    
-    })
-
-  }
-
-  /**
-   * @brief [brief description]
-   * @details [long description]
+   * @brief Rerturn the page layout to the React renderer
    */
   render() {
     return (
