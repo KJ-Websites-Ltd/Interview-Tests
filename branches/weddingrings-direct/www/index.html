@@ -1,0 +1,97 @@
+<!--
+	Basic Product Page outline, with content provided by JSON handled by mustache templating
+	@author John Jeeves
+	@version 1
+	@date 15/03/2018
+-->
+
+<!doctype html>
+<html class="no-js" lang="en/gb">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>{{producttitle}} : Sample Company</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/kube/6.5.2/css/kube.min.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <!--[if lte IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
+    <!-- container element allows for easy responsive scaling-->
+    <div class="container">
+        <header class="header site row">
+            <h1 class="title col col-6">Sample Company</h1>
+            <nav class="nav col col-6">
+                <ul>
+                    <li><a href="#">Buyers guide</a></li>
+                    <li><a href="#">Sample service</a></li>
+                    <li><a href="#">Showroom</a></li>
+                    <li><a href="#">Bespoke</a></li>
+                    <li><a href="#">Our Blog</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+        <article class="article product">
+            <header class="header">
+                <h1 class="title">{{producttitle}}</h1>
+                <nav class="breadcrumbs">
+                    <ul>
+                        <li><a href="#">home</a></li>
+                        <li><a href="#">category</a></li>
+                        <li><a href="#">subcategory</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <main class="main row">
+                <div class="description col col-6">
+                    <figure class="figure product">
+                        <img src="{{productimg}}" alt="{[producttitle}}">
+                        <figcaption>{{producttitle}}</figcaption>
+                    </figure>
+                    {{{productdescription}}}
+                </div>
+                <form class="form col col-6">
+                    <fieldset class="fieldset options">
+                        <legend>Customise your product below</legend>
+                        <div class="row">
+                            <label class="col col-6">size</label>
+                            <div class="col col-6">
+                                <select name="size"></select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label class="col col-6">metal</label>
+                            <div class="col col-6">
+                                <select name="metal"></select>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <fieldset class="fieldset">
+                        <h2>&pound;<span class="price">{{productprice}}</span></h2>
+                        <button class="button">+ add to basket</button>
+                    </fieldset>
+                </form>
+            </main>
+        </article>
+    </div>
+    <!-- hide content until javascript is complete -->
+    <div class="overlay">loading please wait...</div>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script>
+    window.jQuery || document.write('<script src="js/vendor/jquery-3.2.1.min.js"><\/script>')
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/kube/6.5.2/js/kube.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,102 @@
+////
+/// Basic product page outline, based on Kube CSS framework
+/// @author John Jeeves <johnnyvibrant@gmail.com>
+/// @date 15/03/2018
+/// @version 1
+////
+
+
+/// Colour variables
+$white: #fff;
+$grey: #F9F8F8;
+$grey-dark: #E1E1E1;
+$grey-mid: #F0F0F0;
+$black: #000;
+$max-width: 1024px;
+
+/// Resuable flex center mixin
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0 auto;
+
+    
+
+    .container {
+        background-color: $grey;
+        max-width: $max-width;
+        margin: 0.5rem auto;
+        border: 1px solid $grey;
+        a {
+            color: $black;
+        }
+        .header {
+            &.site {
+                padding: 1rem;
+                border-bottom: 1px solid $grey-dark;
+                .title {
+                    @include flex-center;
+                    justify-content: flex-start;
+                    padding: 0;
+                    margin: 0;
+                    font-size: 2rem;
+                }
+                .nav {
+                    @include flex-center;
+                    ul {
+                        text-align: center;
+                        li {
+                            display: inline-block;
+                            padding: 0 0.5rem;
+                            font-size: 0.9rem;
+                        }
+                    }
+                }
+            }
+        }
+        .article.product {
+            background-color: $grey-mid;
+            padding: 1rem;
+            .header {
+                .title {
+                    margin: 0;
+                    padding: 0;
+                    font-size: 2rem;
+                }
+            }
+            .figure,
+            .description,
+            .form {
+                background-color: $white;
+                padding: 1rem;
+                margin: 0;
+            }
+
+            .figure {
+            	text-align: center;
+            }
+
+            .form {
+                .row {
+                    margin-bottom: 1rem;
+                }
+            }
+        }
+    }
+
+    .overlay {
+    	@include flex-center;
+    	background-color: $white;
+    	transition: all 1s ease-out;
+
+    	&.hide {
+    		opacity: 0;
+    		visibility: hidden;
+    	}
+    }
+}
