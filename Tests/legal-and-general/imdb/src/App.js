@@ -1,28 +1,27 @@
 /**
- * Basic listing of IMDB Top 12 films as of 2018 built ontop of the React Start appliaction outline https://reactjs.org/docs/add-react-to-a-new-app.html
+ * Basic listing of IMDB Top 12 films as of 2018 built ontop of the React Start
+ * appliaction outline https://reactjs.org/docs/add-react-to-a-new-app.html
  * @author John Jeeves <johnnyvibrant@gmail.com>
  * @date 04/03/2018
  * @version v1
- * 
+ *
  */
 
-
-import React, { Component } from 'react';
+import {Component} from 'react';
 import _ from 'lodash';
 import './App.css';
-
 
 /**
  * @brief Pullin in a JSON feed of the Top 12 films from IMDB as of 2018
  * @details [long description]
- * 
+ *
  */
 class App extends Component {
 
 
   /**
    * @brief Setup the state object when started
-   * 
+   *
    * @param  Eeact props
    */
   constructor(props) {
@@ -41,12 +40,11 @@ class App extends Component {
 
   }
 
-
-
-
-
   /**
-   * @brief Before rendering the layout, fetch the JSON from an external url, when more development time and testing this could fetch from http://www.myapifilms.com/ or a local server side script that could cache the results
+   * @brief Before rendering the layout, fetch the JSON from an external url,
+   *     when more development time and testing this could fetch from
+   *     http://www.myapifilms.com/ or a local server side script that could
+   *     cache the results
    */
   componentDidMount() {
 
@@ -61,31 +59,34 @@ class App extends Component {
         topTenFilmsData: filmData
         });
 
-    
+
     })
 
   }
 
-
-
   /**
-   * @brief Create each film listing element as a link to the IMDB, showing a title, short synposis, poster and rating 
-   * 
+   * @brief Create each film listing element as a link to the IMDB, showing a
+   *     title, short synposis, poster and rating
+   *
    * @param  [array] Each film array item
    */
   createFilmListItem(film) {
-      
-      return (
 
-          <li key={film.idIMDB}>
-            <a href={film.urlIMDB}>
-            <img src={film.urlPoster} alt={film.title}/>
-              <h4>{film.title}</h4>
-              <h5>Rating: <strong>{film.rating}</strong></h5>
-              <h5>Release Date: <strong>{film.year}</strong></h5>
-              <p>{film.plot}</p>
-              </a>
-          </li>
+    return (
+
+        <li key={ film.idIMDB }>
+          <a href={ film.urlIMDB }>
+            <img src={ film.urlPoster } alt={ film.title }/>
+            <h4>{ film.title }</h4>
+            <h5>Rating:
+              <strong>{ film.rating }</strong>
+            </h5>
+            <h5>Release Date:
+              <strong>{ film.year }</strong>
+            </h5>
+            <p>{ film.plot }</p>
+          </a>
+        </li>
 
         )
   }
